@@ -1,0 +1,24 @@
+substitutions:
+  _REGION: us-central1
+  _TARGET_PROJECT_ID: dev-project-305220
+  _CLOUDSDK_CONTAINER_CLUSTER: krmapihost-kcc-cicd
+steps:
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --filename=resources/*.yaml
+  - --location=${_REGION}
+  - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}
+
+- name: 'google/cloud-sdk:latest'
+  entrypoint: 'sh'
+  args:
+  - -xe
+  - -c
+  - |
+    gcloud config set deploy/region ${_REGION}
+    gcloud container clusters get-credentials ${_CLOUDSDK_CONTAINER_CLUSTER}
+    kubectl delete -f resources/*.yaml
+options:
+  machineType: E2_HIGHCPU_8
+timeout: 3600s
