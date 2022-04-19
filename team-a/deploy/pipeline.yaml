@@ -1,0 +1,15 @@
+apiVersion: deploy.cloud.google.com/v1beta1
+kind: DeliveryPipeline
+metadata:
+  name: team-a-pipeline
+  labels:
+    app: team-a-pipeline
+description: team-a delivery pipeline
+serialPipeline:
+  stages:
+  - targetId: staging
+    profiles:
+    - staging
+  - targetId: prod
+    profiles:
+    - prod
