@@ -7,9 +7,9 @@ profiles:
   deploy:
     kustomize:
       paths:
-      - TEAM/resources/staging/
+      - resources/staging/
 - name: prod
   deploy:
     kustomize:
       paths:
-      - TEAM/resources/prod/
+      - resources/prod/
