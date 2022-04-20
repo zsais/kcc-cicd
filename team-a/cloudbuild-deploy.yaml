@@ -35,6 +35,7 @@ steps:
                         --delivery-pipeline ${_TEAM}-pipeline \
                         --source ${_TEAM} \
                         --description "$(git log -1  --pretty='%s')" \
+                        --build-artifacts /workspace/artifacts.json \
                         --annotations "commit_ui=https://github.com/zsais/kcc-cicd/commit/$COMMIT_SHA"
 artifacts:
   objects:
