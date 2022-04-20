@@ -8,7 +8,7 @@ metadata:
     label-one: "value-one"
   # StorageBucket names must be globally unique. 
   name: PROJECT_ID-sample-prod
-  namespace: PROJECT_ID
+  namespace: config-control
 spec:
   lifecycleRule:
     - action:
