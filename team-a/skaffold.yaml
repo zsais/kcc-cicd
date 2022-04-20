@@ -1,19 +1,15 @@
 apiVersion: skaffold/v2beta16
 kind: Config
 metadata:
-  name: full-stack
-# deploy:
-#   kustomize:
-#     paths:
-#     - k8s/dev/
+  name: team-a-pipeline
 profiles:
 - name: staging
   deploy:
-    kustomize:
-      paths:
-      - TEAM/resources/staging
+    kubectl:
+      manifests:
+      - TEAM/resources/staging/*.yaml
 - name: prod
   deploy:
-    kustomize:
-      paths:
-      - TEAM/resources/prod
+    kubectl:
+      manifests:
+      - TEAM/resources/prod/*.yaml
