@@ -23,7 +23,6 @@ steps:
                         --delivery-pipeline ${_TEAM}-pipeline \
                         --description "$(git log -1  --pretty='%s')" \
                         --annotations "commit_ui=https://github.com/zsais/kcc-cicd/commit/$COMMIT_SHA"
-
 options:
   machineType: E2_HIGHCPU_8
 timeout: 3600s
