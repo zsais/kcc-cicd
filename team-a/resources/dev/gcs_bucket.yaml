@@ -5,7 +5,7 @@ metadata:
     cnrm.cloud.google.com/force-destroy: "false"
     cnrm.cloud.google.com/project-id: PROJECT_ID
   labels:
-    label-one: "value-one"
+    label-one: "value-one1"
   # StorageBucket names must be globally unique. 
   name: PROJECT_ID-sample-dev
 spec:
