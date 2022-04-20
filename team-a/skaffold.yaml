@@ -5,11 +5,11 @@ metadata:
 profiles:
 - name: staging
   deploy:
-    kubectl:
-      manifests:
-      - TEAM/resources/staging/*.yaml
+    kustomize:
+      paths:
+      - TEAM/resources/staging/
 - name: prod
   deploy:
-    kubectl:
-      manifests:
-      - TEAM/resources/prod/*.yaml
+    kustomize:
+      paths:
+      - TEAM/resources/prod/
