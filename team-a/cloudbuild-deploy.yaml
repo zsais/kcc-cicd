@@ -12,6 +12,7 @@ steps:
   - |
     # Build and push images
     skaffold build --file-output=/workspace/artifacts.json \
+                   --file=${_TEAM}/skaffold.yaml \
                    --push=true
 
 - name: 'google/cloud-sdk:latest'
