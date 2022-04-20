@@ -12,7 +12,7 @@ steps:
   - |
     # Build and push images
     skaffold build --file-output=/workspace/artifacts.json \
-                   --file=${_TEAM}/skaffold.yaml \
+                   --filename=${_TEAM}/skaffold.yaml \
                    --push=true
 
 - name: 'google/cloud-sdk:latest'
@@ -33,7 +33,7 @@ steps:
     gcloud alpha deploy apply --file ${_TEAM}/deploy/prod.yaml
     gcloud alpha deploy releases create rel-${SHORT_SHA} \
                         --delivery-pipeline ${_TEAM}-pipeline \
-                        --source ${_TEAM}/skaffold.yaml \
+                        --source ${_TEAM} \
                         --description "$(git log -1  --pretty='%s')" \
                         --annotations "commit_ui=https://github.com/zsais/kcc-cicd/commit/$COMMIT_SHA"
 artifacts:
