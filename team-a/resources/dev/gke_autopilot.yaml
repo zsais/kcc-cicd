@@ -1,7 +1,9 @@
 apiVersion: container.cnrm.cloud.google.com/v1beta1
 kind: ContainerCluster
 metadata:
- name: PROJECT_ID-devdays-autopilot-cluster-dev
+  annotations:
+    cnrm.cloud.google.com/project-id: PROJECT_ID
+  name: PROJECT_ID-devdays-autopilot-cluster-dev
 spec:
  description: An autopilot cluster
  enableAutopilot: true
